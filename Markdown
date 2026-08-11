@@ -1,0 +1,50 @@
+#Lenguaje M — Explorando el Editor Avanzado de Power Query
+
+## Dataset seleccionado
+
+Para realizar esta práctica seleccioné el dataset **Online Retail**, publicado por el UCI Machine Learning Repository.
+
+El dataset contiene información de transacciones de una empresa minorista e incluye diferentes tipos de datos, como identificadores, descripciones de productos, cantidades, precios, fechas, clientes y países.
+
+Elegí este dataset porque resulta adecuado para practicar transformaciones en Power Query, ya que contiene datos de ventas con diferentes tipos de datos y registros que permiten realizar tareas de limpieza y transformación.
+
+Fuente: UCI Machine Learning Repository — Online Retail.
+
+---
+
+## Código M final
+
+A continuación se incluye el código generado y modificado desde el Editor Avanzado de Power Query.
+
+> = Table.SelectRows(#"Tipo cambiado1", each [Quantity] > 0)
+
+La modificación manual realizada consistió en renombrar el paso `#"Columnas con nombre cambiado"` como `#"MiTransformacionManual"` y actualizar su referencia en el paso siguiente.
+
+También se agregó un comentario utilizando `//` para documentar la transformación.
+
+---
+
+## ¿Por qué es útil entender la estructura `let ... in`?
+
+Comprender la estructura `let ... in` es útil porque permite interpretar cómo Power Query construye una transformación paso a paso.
+
+Dentro de `let` se definen los diferentes pasos de transformación. Cada paso tiene un nombre y utiliza como entrada el resultado del paso anterior.
+
+Por ejemplo, una consulta puede tener pasos para importar los datos, cambiar los tipos de datos, renombrar columnas y filtrar filas.
+
+La expresión `in` indica cuál es el último paso que Power Query debe devolver como resultado final.
+
+Entender esta estructura permite al analista de datos revisar, modificar y depurar las transformaciones directamente mediante el código M, además de utilizar la interfaz gráfica.
+
+---
+
+## ¿Qué significa que M sea Case Sensitive?
+
+El lenguaje M es **Case Sensitive**, lo que significa que distingue entre mayúsculas y minúsculas.
+
+Esto implica que los nombres de funciones, variables y pasos deben escribirse respetando exactamente su forma.
+
+Por ejemplo:
+
+```text
+Table.SelectRows
